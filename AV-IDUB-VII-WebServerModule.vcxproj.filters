@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Input">
+      <UniqueIdentifier>{368c9134-5d15-496a-bf7f-5af88806fa19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Input\FrameSources">
+      <UniqueIdentifier>{37ed5597-fea6-499e-a5a4-ea18921224f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Input">
+      <UniqueIdentifier>{6bc35bdb-5e54-4f13-9f59-3175dedafbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Input\FrameSources">
+      <UniqueIdentifier>{98e579fe-4df7-4761-9f1a-37ab0c9babf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Containers">
+      <UniqueIdentifier>{c9fff431-6b2d-4d7d-aa43-d0d42907b688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Entities">
+      <UniqueIdentifier>{1d052bd0-65db-48e8-8053-dfa89883f723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Containers\Main">
+      <UniqueIdentifier>{b244b530-ff7c-4761-a21a-9f79ed4b65b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Tasks">
+      <UniqueIdentifier>{c1edab3e-c01b-4cc2-a8e6-c61930d92903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Tasks">
+      <UniqueIdentifier>{5ed9391d-84fe-4afd-a74a-7e338b88cee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Streaming">
+      <UniqueIdentifier>{993e651c-2222-4520-8133-614b3e5884c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Streaming">
+      <UniqueIdentifier>{333422be-7609-4621-9351-95bf6f9bebd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AV-IDUB-VII-WebServerModule.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\DebugFrameSource.cpp">
+      <Filter>Pliki źródłowe\Input\FrameSources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tasks\CameraDataRunner.cpp">
+      <Filter>Pliki źródłowe\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Streaming\MjpegConverter.cpp">
+      <Filter>Pliki źródłowe\Streaming</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Containers\Main\CyclicBuffer.hpp">
+      <Filter>Pliki nagłówkowe\Containers\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Containers\Main\CyclicBufferCell.hpp">
+      <Filter>Pliki nagłówkowe\Containers\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Containers\FrameSnapshotCyclicBuffer.hpp">
+      <Filter>Pliki nagłówkowe\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\FrameSources\DebugFrameSource.hpp">
+      <Filter>Pliki nagłówkowe\Input\FrameSources</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\FrameSources\FrameSource.hpp">
+      <Filter>Pliki nagłówkowe\Input\FrameSources</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entities\Frame.hpp">
+      <Filter>Pliki nagłówkowe\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Config.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Containers\Main\CyclicBuffer.ipp">
+      <Filter>Pliki nagłówkowe\Containers\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Tasks\CameraDataRunner.hpp">
+      <Filter>Pliki nagłówkowe\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Streaming\MjpegConverter.hpp">
+      <Filter>Pliki nagłówkowe\Streaming</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Streaming\MjpegStreamingServer.hpp">
+      <Filter>Pliki nagłówkowe\Streaming</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\Streaming\MjpegConverter.ipp">
+      <Filter>Pliki nagłówkowe\Streaming</Filter>
+    </None>
+    <None Include="include\Streaming\MjpegStreamingServer.ipp">
+      <Filter>Pliki nagłówkowe\Streaming</Filter>
+    </None>
+  </ItemGroup>
+</Project>

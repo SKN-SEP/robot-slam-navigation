@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Red</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="right_front_wheel_link">
+        <material>Gazebo/Yellow</material>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="right_rear_wheel_link">
+        <material>Gazebo/Yellow</material>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="left_front_wheel_link">
+        <material>Gazebo/Yellow</material>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo reference="left_rear_wheel_link">
+        <material>Gazebo/Yellow</material>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
+            
+            <left_joint>base_left_front_wheel_joint</left_joint>
+            <left_joint>base_left_rear_wheel_joint</left_joint>
+
+            <right_joint>base_right_front_wheel_joint</right_joint>
+            <right_joint>base_right_rear_wheel_joint</right_joint>
+
+            <wheel_separation>0.198</wheel_separation> 
+            <wheel_radius>0.04</wheel_radius> 
+
+            <max_linear_acceleration>10.0</max_linear_acceleration> 
+
+            <topic>cmd_vel</topic> 
+            <tf_topic>/tf</tf_topic> 
+            <odom_topic>odom</odom_topic> 
+            <frame_id>odom</frame_id> 
+            <child_frame_id>base_footprint</child_frame_id> 
+            <odom_publisher_frequency>30</odom_publisher_frequency> 
+        </plugin>
+
+        <plugin name="gz::sim::systems::JointStatePublisher" filename="gz-sim-joint-state-publisher-system">
+            <topic>joint_states</topic> 
+            <joint>base_left_front_wheel_joint</joint> 
+            <joint>base_left_rear_wheel_joint</joint> 
+            <joint>base_right_front_wheel_joint</joint> 
+            <joint>base_right_rear_wheel_joint</joint> 
+        </plugin>
+    </gazebo>
+
+</robot>

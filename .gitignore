@@ -1,0 +1,52 @@
+# ==========================================
+**/install/
+**/build/
+**/log/
+ros2_ws/install/
+ros2_ws/build/
+ros2_ws/log/
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.asyncio/
+nosetests.xml
+coverage.xml
+*.map
+*.egg-info/
+.installed.cfg
+.pip-wheel-metadata/
+_ament_cmake_python/
+# ==========================================
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+# ==========================================
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+# ==========================================
+.vscode/
+.idea/
+.project
+.pydevproject
+.settings/
+*.swp
+*.swo
+*~
+.DS_Store
+# ==========================================
+.env
+.venv
+env/
+venv/
+node_modules/

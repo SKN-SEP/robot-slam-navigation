@@ -1,7 +1,7 @@
 #include "wave_rover_controller/JoystickInputInterpreter.hpp"
 
-WVController::Input WVController::JoystickInputInterpreter::Interpret(const RawInput &input) const {
-    WVController::Input out;
+WRController::Input WRController::JoystickInputInterpreter::Interpret(const RawInput &input) const {
+    WRController::Input out;
 
     //invalid message
     if (input.axes.size() < 2 || input.buttons.size() < 6) {

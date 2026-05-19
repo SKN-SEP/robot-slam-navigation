@@ -15,7 +15,7 @@
 #include "wave_rover_controller/SerialDriver.hpp"
 #include "wave_rover_controller/JoystickInputInterpreter.hpp"
 
-namespace WVController {
+namespace WRController {
     class WaveRoverControllerNode : public rclcpp::Node {
         private:
             rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joySub;

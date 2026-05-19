@@ -2,7 +2,7 @@
 
 #include "Types.hpp"
 
-namespace WVController {
+namespace WRController {
     class MotionFactory {
         private:
             const float linearScale;

@@ -5,7 +5,7 @@
 #include "Types.hpp"
 
 // TODO: Autonomus state and EmergencyStop state if needed.
-namespace WVController {
+namespace WRController {
     class StateMachine {
         private:
             State state;

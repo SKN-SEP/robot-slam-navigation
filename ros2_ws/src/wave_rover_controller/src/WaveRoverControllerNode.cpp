@@ -3,12 +3,12 @@
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<WVController::WaveRoverControllerNode>());
+    rclcpp::spin(std::make_shared<WRController::WaveRoverControllerNode>());
     rclcpp::shutdown();
     return 0;
 }
 
-WVController::WaveRoverControllerNode::WaveRoverControllerNode::WaveRoverControllerNode() : Node("wave_rover_controller") {
+WRController::WaveRoverControllerNode::WaveRoverControllerNode::WaveRoverControllerNode() : Node("wave_rover_controller") {
     this->declare_parameter("linear_speed", 0.75);
     this->declare_parameter("angular_speed", 1.5);
     this->declare_parameter("loop_frequency", 50.0);
@@ -23,12 +23,12 @@ WVController::WaveRoverControllerNode::WaveRoverControllerNode::WaveRoverControl
     this->motion = std::make_unique<MotionFactory>(ls, as);
     this->stateMachine = std::make_unique<StateMachine>(timeout);
     this->driver = std::make_unique<SerialDriver>(
-        "/dev/ttyUSB0",
+        "/dev/ttyAMA0",
         B115200
     );
 
     if (!this->driver->Connect()) {
-        RCLCPP_ERROR(this->get_logger(), "Failed to connect to WaveRover serial port.");
+        RCLCPP_ERROR(this->get_logger(), "Failed to connect to WaveRover serial port /dev/ttyAMA0.");
     }
 
     this->joySub = this->create_subscription<sensor_msgs::msg::Joy>(
@@ -52,12 +52,12 @@ WVController::WaveRoverControllerNode::WaveRoverControllerNode::WaveRoverControl
     RCLCPP_INFO(this->get_logger(), "Wave Rover Controller Node has been initialized.");
 }
 
-void WVController::WaveRoverControllerNode::JoyCb(const sensor_msgs::msg::Joy::SharedPtr msg) {
+void WRController::WaveRoverControllerNode::JoyCb(const sensor_msgs::msg::Joy::SharedPtr msg) {
     this->lastInput.axes = msg->axes;
     this->lastInput.buttons = msg->buttons;
 }
 
-void WVController::WaveRoverControllerNode::PublishCmd(const Motion & cmd) {
+void WRController::WaveRoverControllerNode::PublishCmd(const Motion & cmd) {
     geometry_msgs::msg::Twist msg;
 
     msg.linear.x = cmd.vx;
@@ -68,7 +68,7 @@ void WVController::WaveRoverControllerNode::PublishCmd(const Motion & cmd) {
     this->driver->SendCommand(cmd);
 }
 
-void WVController::WaveRoverControllerNode::Loop() {
+void WRController::WaveRoverControllerNode::Loop() {
     const rclcpp::Time now = this->now();
 
     Input input = this->interpreter->Interpret(this->lastInput);

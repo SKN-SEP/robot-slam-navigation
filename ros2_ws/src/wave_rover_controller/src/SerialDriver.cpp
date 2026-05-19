@@ -1,14 +1,14 @@
 #include "wave_rover_controller/SerialDriver.hpp"
 
-WVController::SerialDriver::SerialDriver(const std::string& port, speed_t baudrate) : serialFd(-1), baudrate(baudrate), port(port) {};
+WRController::SerialDriver::SerialDriver(const std::string& port, speed_t baudrate) : serialFd(-1), baudrate(baudrate), port(port) {};
 
-WVController::SerialDriver::~SerialDriver() {
+WRController::SerialDriver::~SerialDriver() {
     if (this->serialFd >= 0) {
         close(this->serialFd);
     }
 }
 
-bool WVController::SerialDriver::Connect() {
+bool WRController::SerialDriver::Connect() {
     this->serialFd = open(
         this->port.c_str(),
         O_RDWR | O_NOCTTY | O_SYNC
@@ -41,7 +41,7 @@ bool WVController::SerialDriver::Connect() {
     return tcsetattr(this->serialFd, TCSANOW, &tty) == 0;
 }
 
-void WVController::SerialDriver::SendCommand(const CmdSpeedCtrl &cmd) const {
+void WRController::SerialDriver::SendCommand(const CmdSpeedCtrl &cmd) const {
     if (this->serialFd < 0) return;
 
     write(

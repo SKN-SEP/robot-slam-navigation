@@ -3,9 +3,9 @@
 #include "InputInterpreter.hpp"
 #include "Types.hpp"
 
-namespace WVController {
+namespace WRController {
     class JoystickInputInterpreter : public InputInterpreter {
         public:
-            Input Interpret(const RawInput &input) const override;         
+            Input Interpret(const RawInput &input) const override;
     };
 }

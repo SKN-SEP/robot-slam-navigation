@@ -7,7 +7,7 @@
 #include "ConnectionDriver.hpp"
 #include "Types.hpp"
 
-namespace WVController {
+namespace WRController {
     class SerialDriver : public ConnectionDriver {
         private:
             int serialFd;

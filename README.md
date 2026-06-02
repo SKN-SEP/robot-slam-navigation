@@ -42,5 +42,22 @@ Run these, to control the robot:
 ros2 run joy joy_node
 ```
 ```
-ros2 run robot_sim joystick_handler
+ros2 run robot_logic joystick_handler
 ```
+
+### Controlling the Robot via joystick
+WaveRoverControllerNode allows to physically control the chasis movement with joystick while bypassing the need of having the simulation. It provides State Machine design allowing the movement only when safety button is pressed (RB) and joystick input data is valid.
+
+To run the WaveControllerNode you need active joy_node:
+```
+ros2 run joy joy_node
+```
+And then run the WaveControllerNode:
+```
+ros2 run wave_rover_controller wave_rover_controller_node
+```
+The live processed input data of the joystick (not the values that are sent to CMD\_SPEED\_CTRL) is available at:
+```
+ros2 topic echo /wave_rover/cmd_vel
+```
+

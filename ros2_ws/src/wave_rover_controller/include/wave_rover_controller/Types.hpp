@@ -30,7 +30,7 @@ namespace WRController {
 
     struct CmdIMUReceive : public Cmd {
         CmdIMUReceive() {
-            this->cmd = "{\"T\":126}";
+            this->cmd = "{\"T\":126}\r\n";
         };
     };
 
@@ -51,7 +51,7 @@ namespace WRController {
                 << "\"T\":1,"
                 << "\"L\":" << out.lWheel << ","
                 << "\"R\":" << out.rWheel
-                << "}";
+                << "}\r\n";
                 
             out.cmd = ss.str();
 

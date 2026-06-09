@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cmath>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -27,6 +28,12 @@ namespace WRController {
         float rWheel = 0.0f;
     };
 
+    struct CmdIMUReceive : public Cmd {
+        CmdIMUReceive() {
+            this->cmd = "{\"T\":126}";
+        };
+    };
+
     struct Motion {
         float vx = 0.0f;
         float wz = 0.0f;
@@ -52,8 +59,23 @@ namespace WRController {
         };
     };
 
+    struct ImuData {
+        double roll = 0.0;
+        double pitch = 0.0;
+        double yaw = 0.0;
+        double ax = 0.0;
+        double ay = 0.0;
+        double az = 0.0;
+        double gx = 0.0;
+        double gy = 0.0;
+        double gz = 0.0;
+    };
+
     enum class State {
         DISABLED,
         TELEOP
     };
+
+    static constexpr double DEG_TO_RAD = M_PI / 180;
+    static constexpr double M_S2_FACTOR = 0.01;
 }

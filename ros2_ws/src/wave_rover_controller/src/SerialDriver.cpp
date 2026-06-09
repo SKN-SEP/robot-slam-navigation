@@ -1,4 +1,5 @@
 #include "wave_rover_controller/SerialDriver.hpp"
+#include "wave_rover_controller/Types.hpp"
 
 WRController::SerialDriver::SerialDriver(const std::string& port, speed_t baudrate) : serialFd(-1), baudrate(baudrate), port(port) {};
 
@@ -30,7 +31,7 @@ bool WRController::SerialDriver::Connect() {
     tty.c_oflag = 0;
 
     tty.c_cc[VMIN] = 0;
-    tty.c_cc[VTIME] = 5;
+    tty.c_cc[VTIME] = 3;
 
     tty.c_iflag &= ~(IXON | IXOFF | IXANY);
     tty.c_cflag |= (CLOCAL | CREAD);
@@ -41,7 +42,7 @@ bool WRController::SerialDriver::Connect() {
     return tcsetattr(this->serialFd, TCSANOW, &tty) == 0;
 }
 
-void WRController::SerialDriver::SendCommand(const CmdSpeedCtrl &cmd) const {
+void WRController::SerialDriver::SendCommand(const Cmd &cmd) const {
     if (this->serialFd < 0) return;
 
     write(
@@ -49,4 +50,23 @@ void WRController::SerialDriver::SendCommand(const CmdSpeedCtrl &cmd) const {
         cmd.cmd.c_str(),
         cmd.cmd.size()
     );
+}
+
+std::string WRController::SerialDriver::ReadResponse() const {
+    if (this->serialFd < 0) return "";
+
+    std::string resp;
+    char c;
+
+    while(true) {
+        ssize_t bytes = read(this->serialFd, &c, 1);
+
+        if (bytes <= 0) break;
+
+        resp += c;
+
+        if (c == '}') break;
+    }
+
+    return resp;
 }

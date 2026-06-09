@@ -18,6 +18,7 @@ namespace WRController {
             ~SerialDriver();
 
             bool Connect() override;
-            void SendCommand(const CmdSpeedCtrl &cmd) const override;         
+            void SendCommand(const Cmd &cmd) const override;  
+            std::string ReadResponse() const override;
     };
 }

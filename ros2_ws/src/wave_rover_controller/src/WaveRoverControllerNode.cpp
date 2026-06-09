@@ -2,6 +2,7 @@
 #include "sensor_msgs/msg/imu.hpp"
 #include "wave_rover_controller/InternalApi.hpp"
 #include "wave_rover_controller/Types.hpp"
+#include <rclcpp/logging.hpp>
 #include <tf2/LinearMath/Quaternion.hpp>
 
 int main(int argc, char **argv)
@@ -151,4 +152,6 @@ void WRController::WaveRoverControllerNode::ImuLoop() {
     imu.gx = WRController::InternalApi::Extract(resp, "\"gx\"") * WRController::M_S2_FACTOR;
     imu.gy = WRController::InternalApi::Extract(resp, "\"gy\"") * WRController::M_S2_FACTOR;
     imu.gz = WRController::InternalApi::Extract(resp, "\"gz\"") * WRController::M_S2_FACTOR;
+
+    this->PublishCmd(imu);
 }
